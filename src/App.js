@@ -5,8 +5,9 @@ import DataController from "./Controller/DataController";
 import Post from "./Components/Post";
 
 import logo from './logo.svg';
-import "./App.css";
+import loading from './loading.gif';
 
+import "./App.css";
 function App() {
     const [data, setData] = useState([]);
     const [postsList, setPostsList] = useState([]);
@@ -66,12 +67,17 @@ function App() {
             <div className="nav-title">ReactPost</div>
           </div>
             <PostList>
-              <div className="load-more" onClick={loadMore}>CARREGAR MAIS</div>
+              <div className="load-more" onClick={loadMore}></div>
             </PostList>
+            <div id="loading-screen">
+              <img src={loading}></img>
+            </div>
         </div>
     );
 
     async function getData() {
+        const loadingScreen = document.getElementById("loading-screen");
+        loadingScreen.style.display="flex";
         const posts = await DataController.getPosts();
         const users = await DataController.getUsers();
         const initialIndex = postsIndex;
@@ -85,6 +91,7 @@ function App() {
 
         setPostsList(slicedPosts);
         setPostsIndex(finalIndex);
+        loadingScreen.style.display="none";
     }
 }
 
