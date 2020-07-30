@@ -1,0 +1,30 @@
+.comment-container{
+    margin: 10px 0;
+    background-color: rgba(147, 181, 225,0.2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.comment-container:first-child{
+    margin: 0;
+}
+.comment-container .header{
+    border: 0!important;
+    background-color: rgba(147, 181, 225,0.2);
+    background-color: #f4f6ff;
+}
+
+.comment-container .header .title{
+    font-size: 18px!important;
+}
+
+.comment-container .header .userdata{
+    font-size: 14px;
+}
+
+.comment-container .content{
+    font-size: 13px;
+}
+
+.comment-container .content{
+    border-bottom: 0!important;
+}
